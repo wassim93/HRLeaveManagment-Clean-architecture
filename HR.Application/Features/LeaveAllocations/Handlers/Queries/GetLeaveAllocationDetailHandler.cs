@@ -18,7 +18,7 @@ namespace HR.Application.Features.LeaveAllocations.Handlers.Queries
         }
         public async Task<LeaveAllocationDto> Handle(GetLeaveAllocationDetailRequest request, CancellationToken cancellationToken)
         {
-            var leaveAllocation = await _leaveAllocationRepositroy.Get(request.Id);
+            var leaveAllocation = await _leaveAllocationRepositroy.GetLeaveAllocationWithDetails(request.Id);
             return _mapper.Map<LeaveAllocationDto>(leaveAllocation);
         }
     }
